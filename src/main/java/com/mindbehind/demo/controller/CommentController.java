@@ -33,16 +33,4 @@ public class CommentController {
     public ResponseEntity<CommentDto> postComment(@RequestBody CommentDto commentDto) {
         return ResponseEntity.ok(commentManager.postComment(commentDto));
     }
-
-    @GetMapping(path = "/test")
-    public ResponseEntity<CommentDto> test() {
-        CommentDto commentDto = new CommentDto((long) new Random().nextInt(100), "test", 1L, "title", 1);
-        return ResponseEntity.ok(commentManager.postComment(commentDto));
-    }
-
-    @GetMapping(path = "/test2")
-    public ResponseEntity<CommentDto> test2() {
-        CommentDto commentDto = new CommentDto((long) new Random().nextInt(100), "test", 1L, "title", 100);
-        return ResponseEntity.ok(commentManager.postComment(commentDto));
-    }
 }
