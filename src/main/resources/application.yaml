@@ -1,0 +1,5 @@
+server:
+  port: 8080
+
+mind-behind:
+  commentsServiceURL: https://my-json-server.typicode.com/typicode/demo/comments

@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+
+  mind-behind-backend:
+    hostname: mind-behind-backend
+    container_name: mind-behind-backend
+    image: adoptopenjdk/openjdk11-openj9:alpine-jre
+    restart: always
+    volumes:
+      - ./target/:/tmp
+    ports:
+    - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=default
+      - TZ=Europe/Istanbul
+    entrypoint:
+      - "java"
+      - "-server"
+      - "-Dfile.encoding=utf-8"
+      - "-Duser.country=TR"
+      - "-Djava.security.egd=file:/dev/./urandom"
+      - "-jar"
+      - "/tmp/mind-behind-backend.jar"
+
+  mind-behind-frontend:
+    hostname: mind-behind-frontend
+    container_name: mind-behind-frontend
+    build:
+      context: ./mind-behind-frontend
+    restart: always
+    ports:
+      - "80:80"

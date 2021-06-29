@@ -1,0 +1,13 @@
+<p>Vertical Comments: </p>
+<ul>
+  <li *ngFor="let comment of comments">
+    <span>id: {{comment.id}}, body: {{comment.body}}, postId:{{comment.postId}}</span>
+  </li>
+</ul>
+
+<p>Horizontal Comments: </p>
+<ul>
+  <li *ngFor="let comment of comments" class="horizontal">
+    <span>id: {{comment.id}}, body: {{comment.body}}, postId:{{comment.postId}} | </span>
+  </li>
+</ul>
